@@ -1,0 +1,11 @@
+{
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "driver": "SQLite",
+            "database": "${workspaceFolder:pi_rfid}/rfid.db",
+            "name": "sqlite_rfid"
+        }
+    ],
+    "sqltools.useNodeRuntime": true
+}

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>HardSoft Restaurant Template</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400" rel="stylesheet" />    
+	<link href="../css/templatemo-style.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css">
+    
+    <style>
+    .w3-button {width:150px;
+            margin-top:15px;}
+    .statut {margin-left: 15px; width: 20%;}
+    </style>
+</head>
+<!--
+
+HardSoft Restaurant
+
+https://templatemo.com/tm-539-simple-house
+
+-->
+<body> 
+    <div class="container">
+    		<!-- Logo & Site Name -->
+		<div class="placeholder">
+			<div class="parallax-window" data-parallax="scroll" data-image-src="../img/simple-house-01.jpg">
+				<div class="tm-header">
+					<div class="row tm-header-inner">
+						<div class="col-md-6 col-12">
+							<img src="../img/simple-house-logo.png" alt="Logo" class="tm-site-logo" /> 
+							<div class="tm-site-text-box">
+								<h1 class="tm-site-title">HardSoft Restaurant</h1>
+								<h6 class="tm-site-description">new restaurant template</h6>	
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+        <main>
+
+        <?php 
+        
+        $bdd = new PDO('sqlite:/www/pi_rfid/db/rfid.db');  
+        
+        $id=shell_exec("/www/pi_rfid/script/read.py 2>&1");
+        $query = "SELECT EXISTS (select 1 FROM `idstore` WHERE id = $id)";
+        $res3 = $bdd->query($query);
+        foreach($res3 as $row){
+            if($row[0] == "0"){
+                ?>
+                <div class="alert alert-danger" role="alert">
+                Carte not exist in database
+                </div>
+                <?php
+            }
+            else{ ?>
+                <table class="table table-bordered">  
+                <tr>  
+                    <th>Image</th>  
+                    <th>Name</th> 
+                    <th>Prix d'unité</th>
+                    <th>Quantité</th> 
+                    <th>Select</th>   
+                </tr>  
+                <?php  
+                $query = "SELECT * FROM menu";  
+                $sth = $bdd->prepare($query); 
+                $sth->execute();
+                //$result = $sth->fetchAll($query);
+
+                while($row = $sth->fetch())  
+                {  
+                     echo '  
+                        <tr>  
+                                <td width = "80px" height = "80px" >  
+                                    <img src="'.$row['image'].'" height="80" width="80" class="img-thumnail" />  
+                                </td> 
+                                <td>  
+                                    '.$row["name"].'
+                                </td> 
+ 
+                                <td width = "200px">  
+                                    '.$row["price"]." DH".'
+                                </td> 
+
+                                <td>  
+                                    quantité
+                                </td> 
+                                <td width = "180px">  
+                                    <button type="button" class="btn btn-primary btn-sm">Small button</button>
+                                </td> 
+                        </tr>  
+                     ';  
+                }  
+                ?>  
+            </table> 
+        <?php }
+        }
+        ?>
+         
+        </main>
+    </div>
+
+		<footer class="tm-footer text-center">
+			<p>Copyright &copy; 2020 HardSoft Restaurant 
+            
+            | Design: <a rel="nofollow" href="https://templatemo.com">TemplateMo</a></p>
+		</footer>
+	
+    
+	<script src="../js/jquery.min.js"></script>
+	<script src="../js/parallax.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			// Handle click on paging links
+			$('.tm-paging-link').click(function(e){
+				e.preventDefault();
+				
+				var page = $(this).text().toLowerCase();
+				$('.tm-gallery-page').addClass('hidden');
+				$('#tm-gallery-page-' + page).removeClass('hidden');
+				$('.tm-paging-link').removeClass('active');
+				$(this).addClass("active");
+			});
+		});
+	</script>
+</body>
+</html>
+
