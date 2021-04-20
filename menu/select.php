@@ -70,27 +70,25 @@ https://templatemo.com/tm-539-simple-house
         $res_cin = $bdd->query($cin);
         $res_cin->execute();
         $cin = $res_cin->fetch()[0];
-        ////////////////////////////////////////////////////////////////////////
-        ?>
-            <div class="alert alert-success" role="alert">
-              Client with CIN : <span id="cin"><?php echo $cin; ?></span>
-            </div>
-        <?php
-        ///////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
         $query = "SELECT EXISTS (select 1 FROM `idstore` WHERE id = $id)";
         $res3 = $bdd->query($query);
         foreach($res3 as $row){
             if($row[0] == "0"){
                 ?>
                 <div class="alert alert-danger" role="alert">
-                Carte not exist in database
+                Carte not exist in Database
                 </div>
                 <?php
             }
-            else{ ?>
-
-
-                <?php  
+            else{         
+                ////////////////////////////////////////////////////////////////////////
+                ?>
+                    <div class="alert alert-success" role="alert">
+                      Client with CIN : <span id="cin"><?php echo $cin; ?></span>
+                    </div>
+                <?php
+                /////////////////////////////////////////////////////////////////////// 
                 $query = "SELECT * FROM menu";  
                 $sth = $bdd->prepare($query); 
                 $sth->execute();
@@ -168,7 +166,7 @@ https://templatemo.com/tm-539-simple-house
                             <div style="float: right; width: 21%; text-align: right;" id="cart-tax">0</div>
                         </div>
                         <div class="totals-item">
-                            <label>discount</label>
+                            <label>Discount</label>
                             <div class="totals-value" id="cart-shipping">00.00</div>
                         </div>
                         <div class="totals-item totals-item-total">
@@ -178,6 +176,10 @@ https://templatemo.com/tm-539-simple-house
                         </div>
                             
                             <button class="checkout">Checkout</button>
+
+                            </br></br>
+                            
+                            <a href="/pi_rfid/index.php"><input type="submit" value="Return" class="w3-button w3-green" /></a>
 
                         </div>
 
@@ -192,8 +194,7 @@ https://templatemo.com/tm-539-simple-house
 
 		<footer class="tm-footer text-center">
 			<p>copyright &copy; 2021 HardSoft Restaurant 
-            
-            | Design: <a rel="nofollow" href="https://templatemo.com">HardSoft</a></p>
+
 		</footer>
 	
     

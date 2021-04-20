@@ -78,31 +78,31 @@ https://templatemo.com/tm-539-simple-house
             <form action="#menu" method="POST" enctype="multipart/form-data">
             </br>
             <div class="form-group">
-                <label for="plat">Plat</label>
-                <input class="form-control" name="plat" id="plat" placeholder="Nom du plat" required>
+                <label for="plat">Dish</label>
+                <input class="form-control" name="plat" id="plat" placeholder="Name" required>
             </div>
             <div class="form-group">
                 <label for="prix">Price</label>
-                <input type="number" step="0.01" min="0.01" name="prix" class="form-control" id="prix" placeholder="Prix" required>
+                <input type="number" step="0.01" min="0.01" name="prix" class="form-control" id="prix" placeholder="Price" required>
             </div>
             <div class="form-group">
-                <label for="image">image</label>
+                <label for="image">Image</label>
                 <input type="file" name="image" class="form-control-file" id="image">
             </div>
             <button id="insert" name="insert" type="submit" class="btn btn-primary">Submit</button>
             </form>
         </main>
+
+        </br></br>
+    <a href="/pi_rfid/index.php"><input type="submit" value="Return" class="w3-button w3-aqua" /></a>
     </div>
 
-    </br></br>
-    <a href="/pi_rfid/index.php"><input type="submit" value="Retourner" class="w3-button w3-aqua" /></a>
+
 
 
 
 		<footer class="tm-footer text-center">
 			<p>copyright &copy; 2021 HardSoft Restaurant 
-            
-            | Design: <a rel="nofollow" href="https://templatemo.com">HardSoft</a></p>
 		</footer>
 	
     

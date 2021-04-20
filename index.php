@@ -5,7 +5,7 @@
 	<meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>HardSoft Restaurant Template</title>
+    <title>HardSoft Restaurant</title>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400" rel="stylesheet" />    
 	<link href="css/templatemo-style.css" rel="stylesheet" />
 
@@ -60,15 +60,15 @@ https://templatemo.com/tm-539-simple-house
             <div class="w3-container"> 
 
 				<form action="./menu/menu.php" method="POST">
-					<button type="submit" value="select" class="btn btn-warning">select</button>
+					<button type="submit" value="select" class="btn btn-warning">ADD A NEW DISH</button>
 				</form>
 
                 <form action="#data" method="POST">
-                    <input type="submit" name="add" value="ADD A CART" class="w3-button w3-aqua" id="add">
+                    <input type="submit" name="add" value="ADD A NEW CART" class="w3-button w3-aqua" id="add">
                 </form>
 
 				<form action="./menu/select.php" method="POST">
-					<input type="submit" name="menu" value="Menu" class="w3-button w3-aqua" id="menu">
+					<input type="submit" name="menu" value="OUR MENU" class="w3-button w3-aqua" id="menu">
 				</form>
             </div> 
             <?php
@@ -77,13 +77,13 @@ https://templatemo.com/tm-539-simple-house
 			
 
             if(isset($_POST['add'])){
-                if($_POST['add'] == 'ADD A CART' && !isset($_POST['user_name']))
+                if($_POST['add'] == 'ADD A NEW CART' && !isset($_POST['user_name']))
                 { ?>
                 <div class="w3-container">
                     <form action="./data.php" method="POST">
-                    <label for="user_name">Client name :</label><br>
+                    <label for="user_name">Client NAME :</label><br>
                     <input type="text" name="user_name" class="w3-button w3-aqua" id="user_name" required></br></br>
-                    <label for="user_cin">CIN du Client:</label><br>
+                    <label for="user_cin">CIN OF Client:</label><br>
                     <input type="text" name="user_cin" class="w3-button w3-aqua" id="user_cin" required></br></br>
                     <input type="submit" name="user" id="user" value="Submit">
                     </form>
@@ -100,8 +100,6 @@ https://templatemo.com/tm-539-simple-house
 
 		<footer class="tm-footer text-center">
 			<p>Copyright &copy; 2021 HardSoft Restaurant 
-            
-            | Design: <a rel="nofollow" href="https://templatemo.com">HardSoft</a></p>
 		</footer>
 	</div>
 	<script src="js/jquery.min.js"></script>

@@ -22,8 +22,10 @@ if(isset($_POST["user"])){
     foreach($res as $row){
         if($row[0] == "1"){
             ?>
+	<div class="container">
+            </br></br>
             <div class="alert alert-danger" role="alert">
-            CIN exist in database
+            CIN exist in Database
             </div>
             <?php
         }
@@ -33,7 +35,7 @@ if(isset($_POST["user"])){
 
         ?>
         <div class="alert alert-success" role="alert"> 
-         id numéro : <?php echo"'$id'"; ?> est ajouté
+         id number : <?php echo"'$id'"; ?> Added With Success
         </div>
         <?php
 
@@ -45,7 +47,9 @@ if(isset($_POST["user"])){
 
 ?>
 </br></br>
-    <a href="/pi_rfid/index.php"><input type="submit" value="Retourner" class="w3-button w3-aqua" /></a>
+    <a href="/pi_rfid/index.php"><input type="submit" value="Return" class="w3-button w3-aqua" /></a>
+
+    </div>
 <?php 
 }
 
